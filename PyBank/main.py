@@ -1,25 +1,27 @@
 
-#print financial analysis and divider
-print("Financial Analysis")
-print("----------------------------")
-
-#path to dataset
+#import library
 import os
 import csv
-budget_csv = os.path.join('Resources', 'budget_data.csv')
 
-with open(budget_csv) as csvfile:
+#joining path
+pybank_data = os.path.join('Resources', 'budget_data.csv')
+
+#open and read csv
+with open(pybank_data) as csvfile:
   csvreader = csv.reader(csvfile, delimiter=',')
+  csv_header = next(csvreader)
 
-  #csv_header = next(csvreader)
-  #print(f"CSV Header: {csv_header}")
-for row in csvreader:
-  print(row)
+  #create lists for rows
+  months = []
+  profit_losses = []
 
+  #read through each row after header and append into lists
+  for row in csvreader:
+    months.append(row[0])
+    profit_losses.append(row[1])
 
-
-
-# total number of months in dataset
+#total number of months
+  total_months = len(months)
 
 #The net total amount of "Profit/Losses" over the entire period
 
@@ -28,6 +30,15 @@ for row in csvreader:
 #The greatest increase in profits (date and amount) over the entire period
 
 #The greatest decrease in losses (date and amount) over the entire period
+
+#print financial analysis
+print("Financial Analysis")
+print("----------------------------")
+print("Total Months: " + str(total_months))
+#print("Total: " + "$" + )
+#print("Average Change: " + )
+#print("Greatest Increase in Profits: " + )
+#print("Greatest Decrease in Profits" +)
 
 #As an example, your analysis should look similar to the one below:
 
