@@ -11,9 +11,12 @@ with open(pybank_data) as csvfile:
   csvreader = csv.reader(csvfile, delimiter=',')
   csv_header = next(csvreader)
 
-  #create lists for rows
+
+  #create lists for rows and define variables
   months = []
   profit_losses = []
+  
+  net_total = 0
 
   #read through each row after header and append into lists
   for row in csvreader:
@@ -24,6 +27,8 @@ with open(pybank_data) as csvfile:
   total_months = len(months)
 
 #The net total amount of "Profit/Losses" over the entire period
+  for nloop in range(total_months):
+    net_total = net_total + int(profit_losses[nloop])
 
 #The average of the changes in "Profit/Losses" over the entire period
 
@@ -35,7 +40,7 @@ with open(pybank_data) as csvfile:
 print("Financial Analysis")
 print("----------------------------")
 print("Total Months: " + str(total_months))
-#print("Total: " + "$" + )
+print("Total: " + "$" + str(net_total))
 #print("Average Change: " + )
 #print("Greatest Increase in Profits: " + )
 #print("Greatest Decrease in Profits" +)
