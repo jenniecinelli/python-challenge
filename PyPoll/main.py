@@ -1,35 +1,55 @@
-#path to dataset
+#import 
 import os
 import csv
-csvpath = os.path.join('python-challenge','PyBank','Resources', 'budget_data.csv')
 
-with open(csvpath) as csvfile:
+#joining path
+pypoll_data = os.path.join('Resources', 'election_data.csv')
+
+#open and read csv
+with open(pypoll_data) as csvfile:
   csvreader = csv.reader(csvfile, delimiter=',')
-  print(csvreader)
-#print financial analysis and divider
-print("Financial Analysis")
-print("----------------------------")
-# total number of months in dataset
+  csv_header = next(csvreader)
 
+  #create lists for rows and define variables
+  voter_ID = []
+  county = []
+  candidate = []
 
+  #read through each row after header and append into lists
+  for row in csvreader:
+    voter_ID.append(row[0])
+    county.append(row[1])
+    candidate.append(row[2])
 
-#The net total amount of "Profit/Losses" over the entire period
+# The total number of votes cast
+  total_votes = len(voter_ID)
 
-#The average of the changes in "Profit/Losses" over the entire period
+# A complete list of candidates who received votes
 
-#The greatest increase in profits (date and amount) over the entire period
+# The percentage of votes each candidate won
 
-#The greatest decrease in losses (date and amount) over the entire period
+# The total number of votes each candidate won
+
+# The winner of the election based on popular vote.
+
+#print
+print("Election Results")
+print("-------------------------")
+print("Total Votes: " + str(total_votes))
+print("-------------------------")
 
 #As an example, your analysis should look similar to the one below:
 
-  #text
-  #Financial Analysis
-  #----------------------------
-  #Total Months: 86
-  #Total: $38382578
-  #Average  Change: $-2315.12
-  #Greatest Increase in Profits: Feb-2012 ($1926159)
-  #Greatest Decrease in Profits: Sep-2013 ($-2196167)
+ # Election Results
+  #-------------------------
+  #Total Votes: 3521001
+  #-------------------------
+  #Khan: 63.000% (2218231)
+  #Correy: 20.000% (704200)
+  #Li: 14.000% (492940)
+  #O'Tooley: 3.000% (105630)
+  #-------------------------
+  #Winner: Khan
+  #-------------------------
 
-#In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+# In addition, your final script should both print the analysis to the terminal and export a text file with the results.
