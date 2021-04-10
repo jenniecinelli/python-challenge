@@ -10,37 +10,49 @@ with open(pypoll_data) as csvfile:
   csvreader = csv.reader(csvfile, delimiter=',')
   csv_header = next(csvreader)
 
-  #create lists for rows and define variables
-  voter_ID = []
-  county = []
-  candidate = []
+#define variables
+  total_votes = 0
+  khan_total = 0
+  correy_total = 0
+  li_total = 0
+  otooley_total = 0
 
-  #read through each row after header and append into lists
+#read through each row after header and append into lists
   for row in csvreader:
-    voter_ID.append(row[0])
-    county.append(row[1])
-    candidate.append(row[2])
-  
-    # The total number of votes cast
-    total_votes = len(voter_ID)
+
+#total votes
+    total_votes = total_votes + 1
 
 # A complete list of candidates who received votes
-
-# The percentage of votes each candidate won
-
-# The total number of votes each candidate won
+    if row[2] == "Khan":
+      khan_total = khan_total + 1
+    elif row[2] == "Correy":
+      correy_total = correy_total + 1
+    elif row[2] == "Li":
+      li_total = li_total + 1
+    elif row[2] == "O'Tooley":
+      otooley_total = otooley_total + 1
+  
+# percentage of votes per candidate
+    khan_p = (khan_total/total_votes) * 100
+    correy_p = (correy_total/total_votes) * 100
+    li_p = (li_total/total_votes) * 100
+    otooley_p = (otooley_total/total_votes) * 100
 
 # The winner of the election based on popular vote.
 
-
-
-#print
+#print results
 print("Election Results")
 print("-------------------------")
-print("Total Votes: " + str(total_votes))
+print(f"Total Votes: {total_votes}")
 print("-------------------------")
-#print(candidate + ": " + (percent_votes) + (total_votes_each))
-#print("winner: " + (winning_candidate))
+print(f"Khan: ({khan_p})% ({khan_total})")
+print(f"Correy: ({correy_p})% ({correy_total})")
+print(f"Li: ({li_p})% ({li_total})")
+print(f"O'Tooley: ({otooley_p})% ({otooley_total})")
+print("-------------------------")
+print("winner: ")
+print("-------------------------")
 
 #As an example, your analysis should look similar to the one below:
 
@@ -57,3 +69,22 @@ print("-------------------------")
   #-------------------------
 
 # In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+#output_file = os.path.join('election_results.txt')
+# with open(output_file, "w") as file:
+  #file.write("Election Results")
+  #file.write("\n")
+  #file.write("----------------------------")
+  #file.write("\n")
+  #file.write(f"Total Votes: {total_votes}")
+  #file.write("\n")
+  #file.write("-------------------------")
+  #file.write("\n")
+  #file.write(f"Khan: ({khan_p})% ({khan_total})")
+  #file.write("\n")
+  #file.write(f"Correy: ({correy_p})% ({correy_total})")
+  #file.write("\n")
+  #file.write(f"Li: ({li_p})% ({li_total})")
+  #file.write(f"O'Tooley: ({otooley_p})% ({otooley_total})")
+  #file.write("-------------------------")
+  #file.write("winner: ")
+  #file.write("-------------------------")
