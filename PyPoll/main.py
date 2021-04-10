@@ -40,6 +40,9 @@ with open(pypoll_data) as csvfile:
     otooley_p = (otooley_total/total_votes) * 100
 
 # The winner of the election based on popular vote.
+import operator
+candidate_votes = {"Khan": khan_total, "Correy": correy_total, "Li": li_total, "O'Tooley": otooley_total}
+winner = max(candidate_votes.items(), key=operator.itemgetter(1))[0]
 
 #print results
 print("Election Results")
@@ -51,40 +54,26 @@ print(f"Correy: ({correy_p})% ({correy_total})")
 print(f"Li: ({li_p})% ({li_total})")
 print(f"O'Tooley: ({otooley_p})% ({otooley_total})")
 print("-------------------------")
-print("winner: ")
+print(f"Winner: ({winner})")
 print("-------------------------")
 
-#As an example, your analysis should look similar to the one below:
-
- # Election Results
-  #-------------------------
-  #Total Votes: 3521001
-  #-------------------------
-  #Khan: 63.000% (2218231)
-  #Correy: 20.000% (704200)
-  #Li: 14.000% (492940)
-  #O'Tooley: 3.000% (105630)
-  #-------------------------
-  #Winner: Khan
-  #-------------------------
-
 # In addition, your final script should both print the analysis to the terminal and export a text file with the results.
-#output_file = os.path.join('election_results.txt')
-# with open(output_file, "w") as file:
-  #file.write("Election Results")
-  #file.write("\n")
-  #file.write("----------------------------")
-  #file.write("\n")
-  #file.write(f"Total Votes: {total_votes}")
-  #file.write("\n")
-  #file.write("-------------------------")
-  #file.write("\n")
-  #file.write(f"Khan: ({khan_p})% ({khan_total})")
-  #file.write("\n")
-  #file.write(f"Correy: ({correy_p})% ({correy_total})")
-  #file.write("\n")
-  #file.write(f"Li: ({li_p})% ({li_total})")
-  #file.write(f"O'Tooley: ({otooley_p})% ({otooley_total})")
-  #file.write("-------------------------")
-  #file.write("winner: ")
-  #file.write("-------------------------")
+output_file = os.path.join('election_results.txt')
+with open(output_file, "w") as file:
+  file.write("Election Results")
+  file.write("\n")
+  file.write("----------------------------")
+  file.write("\n")
+  file.write(f"Total Votes: {total_votes}")
+  file.write("\n")
+  file.write("-------------------------")
+  file.write("\n")
+  file.write(f"Khan: ({khan_p})% ({khan_total})")
+  file.write("\n")
+  file.write(f"Correy: ({correy_p})% ({correy_total})")
+  file.write("\n")
+  file.write(f"Li: ({li_p})% ({li_total})")
+  file.write(f"O'Tooley: ({otooley_p})% ({otooley_total})")
+  file.write("-------------------------")
+  file.write(f"Winner: ({winner})")
+  file.write("-------------------------")
