@@ -20,9 +20,9 @@ with open(pypoll_data) as csvfile:
     voter_ID.append(row[0])
     county.append(row[1])
     candidate.append(row[2])
-
-# The total number of votes cast
-  total_votes = len(voter_ID)
+  
+    # The total number of votes cast
+    total_votes = len(voter_ID)
 
 # A complete list of candidates who received votes
 
@@ -32,11 +32,15 @@ with open(pypoll_data) as csvfile:
 
 # The winner of the election based on popular vote.
 
+
+
 #print
 print("Election Results")
 print("-------------------------")
 print("Total Votes: " + str(total_votes))
 print("-------------------------")
+#print(candidate + ": " + (percent_votes) + (total_votes_each))
+#print("winner: " + (winning_candidate))
 
 #As an example, your analysis should look similar to the one below:
 

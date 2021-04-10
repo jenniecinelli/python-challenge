@@ -1,4 +1,5 @@
 
+
 #import library
 import os
 import csv
@@ -15,45 +16,50 @@ with open(pybank_data) as csvfile:
   #create lists for rows and define variables
   months = []
   profit_losses = []
-  
-  net_total = 0
+  #month_result = []
+  average_change = []
 
   #read through each row after header and append into lists
   for row in csvreader:
     months.append(row[0])
-    profit_losses.append(row[1])
+    profit_losses.append(int(row[1]))
 
-#total number of months
-  total_months = len(months)
-
-#The net total amount of "Profit/Losses" over the entire period
-  for nloop in range(total_months):
-    net_total = net_total + int(profit_losses[nloop])
-
+  for p in range(len(profit_losses)-1):
 #The average of the changes in "Profit/Losses" over the entire period
+    average_change.append((profit_losses[p+1] - profit_losses[p]))
 
 #The greatest increase in profits (date and amount) over the entire period
+greatest_increase = max(average_change)
 
 #The greatest decrease in losses (date and amount) over the entire period
+greatest_decrease = min(average_change)
+
+max_month = average_change.index(max(average_change)) + 1
+min_month = average_change.index(min(average_change)) + 1
 
 #print financial analysis
 print("Financial Analysis")
 print("----------------------------")
-print("Total Months: " + str(total_months))
-print("Total: " + "$" + str(net_total))
-#print("Average Change: " + )
-#print("Greatest Increase in Profits: " + )
-#print("Greatest Decrease in Profits" +)
+print(f"Total Months: {len(months)}")
+print(f"Total: ${sum(profit_losses)}")
+print(f"Average Change: {(sum(average_change) / len(average_change))}")
+print(f"Greatest Increase in Profits: {months[max_month]} (${str(greatest_increase)})")
+print(f"Greatest Decrease in Profits: {months[min_month]} (${str(greatest_decrease)})")
 
-#As an example, your analysis should look similar to the one below:
-
-  #text
-  #Financial Analysis
-  #----------------------------
-  #Total Months: 86
-  #Total: $38382578
-  #Average  Change: $-2315.12
-  #Greatest Increase in Profits: Feb-2012 ($1926159)
-  #Greatest Decrease in Profits: Sep-2013 ($-2196167)
 
 #In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+output_file = os.path.join('financial_analysis.txt')
+with open(output_file, "w") as file:
+  file.write("Financial Analysis")
+  file.write("\n")
+  file.write("----------------------------")
+  file.write("\n")
+  file.write(f"Total Months: {len(months)}")
+  file.write("\n")
+  file.write(f"Total: ${sum(profit_losses)}")
+  file.write("\n")
+  file.write(f"Average Change: {(sum(average_change) / len(average_change))}")
+  file.write("\n")
+  file.write(f"Greatest Increase in Profits: {months[max_month]} (${str(greatest_increase)})")
+  file.write("\n")
+  file.write(f"Greatest Decrease in Profits: {months[min_month]} (${str(greatest_decrease)})")
