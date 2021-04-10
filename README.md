@@ -1,23 +1,5 @@
 python-challenge
 
-Before You Begin:
-
-1. Create a new repository for this project called `python-challenge`. **Do not add this homework to an existing repository**.
-
-2. Clone the new repository to your computer.
-
-3. Inside your local git repository, create a directory for both of the  Python Challenges. Use folder names corresponding to the challenges: **PyBank** and  **PyPoll**.
-
-4. Inside of each folder that you just created, add the following:
-
-5. A new file called `main.py`. This will be the main script to run for each analysis.
-
-6. A "Resources" folder that contains the CSV files you used. Make sure your script has the correct path to the CSV file.
-
-7. An "analysis" folder that contains your text file that has the results from your analysis.
-
-8. Push the above changes to GitHub or GitLab.
-
 PyBank:
 
 [Revenue](Images/revenue-per-lead.png)
