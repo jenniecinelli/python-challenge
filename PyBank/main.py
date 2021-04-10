@@ -41,7 +41,7 @@ print("Financial Analysis")
 print("----------------------------")
 print(f"Total Months: {len(months)}")
 print(f"Total: ${sum(profit_losses)}")
-print(f"Average Change: {(sum(average_change) / len(average_change))}")
+print(f"Average Change: {(sum(average_change) / len(average_change)):.2f}")
 print(f"Greatest Increase in Profits: {months[max_month]} (${str(greatest_increase)})")
 print(f"Greatest Decrease in Profits: {months[min_month]} (${str(greatest_decrease)})")
 
