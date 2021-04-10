@@ -16,7 +16,7 @@ Your task is to create a Python script that analyzes the records to calculate ea
 
 5.  The greatest decrease in losses (date and amount) over the entire period
 
-6. As an example, your analysis should look similar to the one below:
+As an example, your analysis should look similar to the one below:
 
   ```text
   Financial Analysis
@@ -28,7 +28,7 @@ Your task is to create a Python script that analyzes the records to calculate ea
   Greatest Decrease in Profits: Sep-2013 ($-2196167)
   ```
 
-7.  In addition, your final script should both print the analysis to the terminal and export a text file with the results.
+6.  In addition, your final script should both print the analysis to the terminal and export a text file with the results.
 
 PyPoll:
 
