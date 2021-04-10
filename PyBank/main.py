@@ -16,7 +16,6 @@ with open(pybank_data) as csvfile:
   #create lists for rows and define variables
   months = []
   profit_losses = []
-  #month_result = []
   average_change = []
 
   #read through each row after header and append into lists
