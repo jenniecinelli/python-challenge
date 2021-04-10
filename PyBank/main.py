@@ -57,7 +57,7 @@ with open(output_file, "w") as file:
   file.write("\n")
   file.write(f"Total: ${sum(profit_losses)}")
   file.write("\n")
-  file.write(f"Average Change: {(sum(average_change) / len(average_change))}")
+  file.write(f"Average Change: {(sum(average_change) / len(average_change)):.2f}")
   file.write("\n")
   file.write(f"Greatest Increase in Profits: {months[max_month]} (${str(greatest_increase)})")
   file.write("\n")
